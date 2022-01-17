@@ -1,0 +1,16 @@
+<!-- header component -->
+<header>
+    <app-header [revenueTypes]="distinctRevenueTypes" (selectedValueChange)="selectedRevenueChanged($event)"></app-header>
+</header>
+
+<div class="container">
+    <!-- graph component -->
+    <div class="graph" *ngIf="load; else elseBlock">
+        <app-graph [dataList]="list"></app-graph>
+    </div>
+    <ng-template #elseBlock style="text-align: center;">Loading...</ng-template>
+    <!-- table component -->
+    <div class="table">
+        <app-table [dataList]="list"></app-table>
+    </div>
+</div>
